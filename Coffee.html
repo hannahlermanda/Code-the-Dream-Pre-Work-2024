@@ -22,14 +22,19 @@
     </div>
 
     <!-- Loading screen -->
-    <div id="loading-screen" style="display: none;">
+    <div id="loading-screen">
         <h2>Loading your drink...</h2>
         <div class="spinner"></div>
     </div>
 
-    <!-- Result screen (drink & weather) -->
-    <div id="result-screen" style="display: none;">
-        <!-- Navigation Bar -->
+    <!-- Temperature screen -->
+    <div id="temperature-screen">
+        <h2 id="temp-info"></h2>
+    </div>
+
+    <!-- Result screen (drink & ingredients) -->
+    <div id="result-screen">
+        <!-- Nav Bar only on result screen -->
         <nav id="navbar">
             <ul>
                 <li><a href="#coffee-section">Your Drink</a></li>
@@ -37,19 +42,15 @@
             </ul>
         </nav>
 
-        <!-- Drink section -->
         <div id="coffee-section">
             <h2 id="coffee-name">Coffee Name</h2>
-            <img id="coffee-image" src="" alt="Coffee Image" style="width: 500px;">
+            <img id="coffee-image" src="" alt="Drink">
         </div>
 
-        <!-- Ingredients section -->
         <div id="ingredients-section">
+            <h2>Ingredients:</h2>
             <p id="coffee-ingredients"></p>
         </div>
-
-        <!-- Weather Info -->
-        <p id="weather-info"></p>
 
         <button id="go-back-button">Go Back</button>
     </div>

@@ -8,6 +8,10 @@ html {
     display: none;
 }
 
+#loading-screen, #temperature-screen, #result-screen{
+    display: none;
+}
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
@@ -23,10 +27,19 @@ h1, h2 {
     /*Add scroll margin to prevent overlap with the navbar*/
     scroll-margin-top: 80px;
 }
+
 #coffee-name{
     padding-top: 30px;
 }
 
+#coffee-image{
+    max-width:500px;
+    /*Adjust dynamic response*/
+    width:100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
  /*Give me my drink button and go back button*/
 button {
     background-color: #28a745;
@@ -86,6 +99,7 @@ img {
     padding: 20px;
     position: fixed;
     top: 0;
+    left:0;
     width: 100%;
     z-index: 1000;
     display: flex;

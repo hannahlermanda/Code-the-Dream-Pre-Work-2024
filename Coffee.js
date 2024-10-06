@@ -1,6 +1,5 @@
-//Array to hold hot coffee data
+//Arrays to hold hot and iced coffee data
 let hotCoffees = [];
-//Array to hold iced coffee data
 let icedCoffees = [];
 
 //Swedish to English ingredient translation
@@ -26,7 +25,7 @@ const ingredientTranslations = {
     "Te": "Tea",
     "Karamellsirap": "Caramel syrup",
     "Foam": "Foam",
-    "Ångad mjölk": "Steamed milk", 
+    "Ångad mjölk": "Steamed milk",
     "Sirap": "Syrup",
     "Hett vatten": "Hot water",
     "Ingefära": "Ginger",
@@ -36,10 +35,10 @@ const ingredientTranslations = {
     "Färska Apelsiner": "Fresh oranges",
     "Vispgrädde*": "Whipped cream",
     "Vispgrädde": "Whipped cream",
-    "Whip*": "Whipped cream"
+    "Whip*": "Whipped cream" 
 };
 
-//Translate from Swedish to English function
+//Translate from Swedish to English
 function translateIngredients(ingredients) {
     return ingredients.map(ingredient => ingredientTranslations[ingredient] || ingredient).join(', ');
 }
@@ -50,10 +49,17 @@ function showLoadingScreen() {
     document.getElementById('loading-screen').style.display = 'block';
 }
 
-//Hide loading screen and show results
-function hideLoadingScreenAndShowResult() {
+//Show temperature screen
+function showTemperatureScreen(temperature) {
     document.getElementById('loading-screen').style.display = 'none';
-    document.getElementById('result-screen').style.display = 'block';
+    document.getElementById('temperature-screen').style.display = 'block';
+    document.getElementById('temp-info').innerText = `It's ${temperature}°F right now!`;
+
+    //Transition to result screen after temperature screen
+    setTimeout(() => {
+        document.getElementById('temperature-screen').style.display = 'none';
+        document.getElementById('result-screen').style.display = 'block';
+    }, 2000); // 2 seconds delay
 }
 
 //Fetch coffee data from the API
@@ -65,21 +71,24 @@ function fetchCoffees() {
     .then(responses => Promise.all(responses.map(res => res.json())))
     .then(data => {
         //Hot coffee data
-        hotCoffees = data[0]; 
+        hotCoffees = data[0];
         //Iced coffee data
         icedCoffees = data[1];
+        //See data for hot and iced coffee in the console log
+        console.log('Hot Coffees:', hotCoffees);
+        console.log('Iced Coffees:', icedCoffees);
     })
     .catch(error => console.error('Error fetching coffees:', error));
 }
 
 //Show coffee name, image, and ingredients
 function displayCoffee(coffee) {
-     //Coffee name
+    //Coffee name
     document.getElementById('coffee-name').innerText = coffee.title;
-     //Coffee image
+    //Coffee image
     document.getElementById('coffee-image').src = coffee.image;
     //Coffee ingredients translated from Swedish
-    document.getElementById('coffee-ingredients').innerText = `Ingredients: ${translateIngredients(coffee.ingredients)}`; 
+    document.getElementById('coffee-ingredients').innerText = `${translateIngredients(coffee.ingredients)}`;
 }
 
 //Fetch weather data based on location
@@ -90,14 +99,11 @@ function fetchWeather(selectedLocation) {
         .then(response => response.json())
         .then(data => {
             //Get current temperature
-            const temperature = data.current.temperature_2m; 
-            //Get apparent temperature
-            const apparentTemperature = data.current.apparent_temperature;
-            //True if it's daytime
-            const isDay = data.current.is_day;
-            displayWeather(temperature, apparentTemperature, isDay);
+            const temperature = data.current.temperature_2m;
             //Call recommendCoffee function (recommends coffee based on temperature)
             recommendCoffee(temperature);
+            //Show the temperature screen before transitioning to result screen
+            showTemperatureScreen(temperature);
         })
         .catch(error => console.error('Error:', error));
 }
@@ -107,41 +113,29 @@ function recommendCoffee(temperature) {
     if (temperature > 75) {
         const randomIndex = Math.floor(Math.random() * icedCoffees.length);
         //Random iced coffee if temperature is above 75°F
-        displayCoffee(icedCoffees[randomIndex]); 
+        displayCoffee(icedCoffees[randomIndex]);
     } else {
         const randomIndex = Math.floor(Math.random() * hotCoffees.length);
         //Random hot coffee if temperature is 75°F or below
-        displayCoffee(hotCoffees[randomIndex]); 
+        displayCoffee(hotCoffees[randomIndex]);
     }
 }
 
-//Display the weather
-function displayWeather(temperature, apparentTemperature, isDay) {
-    const dayNightStatus = isDay ? 'Daytime' : 'Nighttime';
-    document.getElementById('weather-info').innerText = `Current Temperature: ${temperature}°F (Feels like: ${apparentTemperature}°F, ${dayNightStatus})`;
+//Go back to the welcome screen
+function goBackToWelcomeScreen() {
+    document.getElementById('result-screen').style.display = 'none';
+    document.getElementById('welcome-screen').style.display = 'block';
 }
 
 //Event listener for the "Give me my drink!" button
 document.getElementById('recommend-button').addEventListener('click', () => {
     const selectedLocation = document.getElementById('location-select').value;
-    //Show the loading spinner
-    showLoadingScreen();  
-    setTimeout(() => {
-        fetchWeather(selectedLocation);
-        //Hide the spinner and show results after the data is fetched
-        hideLoadingScreenAndShowResult(); 
-        //2 seconds loading
-    }, 2000);  
+    showLoadingScreen();
+    fetchWeather(selectedLocation);
 });
 
 //Event listener for the "Go Back" button
 document.getElementById('go-back-button').addEventListener('click', goBackToWelcomeScreen);
-
-//Show the welcome screen and hide the result screen
-function goBackToWelcomeScreen() {
-    document.getElementById('result-screen').style.display = 'none';
-    document.getElementById('welcome-screen').style.display = 'block';
-}
 
 //Initial fetch to load coffee data
 fetchCoffees();
