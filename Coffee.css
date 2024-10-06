@@ -11,7 +11,7 @@ body {
 h1, h2 {
     color: #333;
 }
-
+ /*Give me my drink button and go back button*/
 button {
     background-color: #28a745;
     color: white;
@@ -38,7 +38,28 @@ img {
     margin-top: 20px;
 }
 
+/*Weather information and drink ingredients under the picture of the drink*/
 #weather-info, #coffee-ingredients {
     font-size: 1.2rem;
     margin-top: 10px;
+}
+
+/* Loading spinner */
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading-screen, #result-screen {
+    margin-top: 50px;
 }

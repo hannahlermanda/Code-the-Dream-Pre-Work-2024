@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="Coffee.css">
 </head>
 <body>
-    <!-- Screen 1: Welcome and Select Location -->
+    <!-- Welcome screen -->
     <div id="welcome-screen">
         <h1>What should you drink today? &#129300; &#127861; &#9749;</h1>
-        <p>Select your location to get started!</p>
+        <h2>Pick your location:</h2>
         <select id="location-select">
-            <option value="-54.9335,-67.6096">Puerto Williams, Chile </option>
+            <option value="-54.9335,-67.6096">Puerto Williams, Chile</option>
             <option value="-33.4569,-70.6483">Santiago, Chile</option>
             <option value="14.6407,-90.5133">Guatemala City, Guatemala</option>
             <option value="36.4478,-116.8529">Death Valley, CA, USA</option>
@@ -20,14 +20,19 @@
         </select>
         <button id="recommend-button">Give me my drink! :D</button>
     </div>
-    <!-- Screen 2: Results screen: Show coffee and weather info -->
+
+    <!-- Loading screen -->
+    <div id="loading-screen" style="display: none;">
+        <h2>Loading your drink...</h2>
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Result screen (drink & weather) -->
     <div id="result-screen" style="display: none;">
         <h2 id="coffee-name">Coffee Name</h2>
         <img id="coffee-image" src="" alt="Coffee Image" style="width: 500px;">
-        <!-- Display ingredients -->
-        <p id="coffee-ingredients"></p> 
-        <!-- Display weather -->
-        <p id="weather-info"></p> 
+        <p id="coffee-ingredients"></p>
+        <p id="weather-info"></p>
         <button id="go-back-button">Go Back</button>
     </div>
 
