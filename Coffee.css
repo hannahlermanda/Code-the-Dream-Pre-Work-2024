@@ -1,17 +1,21 @@
-
-/* Smooth scroll behavior */
 html {
+    /*Smooth scroll behavior*/
     scroll-behavior: smooth;
     background-image: url("https://www.shockwave-sound.com/blog/wp-content/uploads/2021/05/pexels-simon-berger-1323550-scaled.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    font-size: 18px;
 }
 
 .hidden {
     display: none;
 }
 
-#loading-screen, #temperature-screen, #result-screen{
-    display: none;
+#loading-screen, #temperature-screen, #result-screen {
+    /*Initially hidden*/
+    display: none; 
 }
 
 body {
@@ -22,36 +26,75 @@ body {
 h1, h2 {
     color: #070707;
 }
+
+h2 {
+    font-size: 30px;
+}
+
+/*Welcome Screen*/
+#welcome-screen, #loading-screen {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    height: 100vh; 
+}
+
+#what-drink {
+    font-size: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#location-select {
+    cursor: pointer;
+}
+
+/*Temperature screen*/
+#temperature-screen {
+    display: flex; 
+    flex-direction: column;      
+    justify-content: center;     
+    align-items: center;         
+    height: 100vh;              
+    text-align: center;          
+}
+
+#temp-info{
+    font-size: 40px;
+}
+
 /*Coffee and Ingredients sections*/
 #coffee-section {
     margin-top: 50px;
     /*Add scroll margin to prevent overlap with the navbar*/
-    scroll-margin-top: 80px;
+    scroll-margin-top: 80px; 
 }
 
-#coffee-name{
+#coffee-name {
     padding-top: 30px;
 }
 
-#coffee-image{
-    max-width:500px;
-    /*Adjust dynamic response*/
-    width:100%;
+#coffee-image {
+    /*Responsive image*/
+    max-width: 500px; 
+    width: 100%;
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
 }
 
-#ingredients-section{
+#ingredients-section {
     margin: 10px auto; 
     background-color: beige;
     padding-top: 10px;
     padding-bottom: 10px;
     max-width: 500px;
-    width:100%;
+    width: 100%;
     height: auto;
 }
- /*Give me my drink button and go back button*/
+
+/*Give me my drink button and go back button*/
 button {
     background-color: #28a745;
     color: white;
@@ -106,11 +149,11 @@ img {
 
 /*Nav bar*/
 #navbar {
-    background-color: #333;
+    background-color: #4b2a00;
     padding: 20px;
     position: fixed;
     top: 0;
-    left:0;
+    left: 0;
     width: 100%;
     z-index: 1000;
     display: flex;
@@ -141,7 +184,7 @@ img {
     text-decoration: underline;
 }
 
-/*Prevent result screen from overlapping with the navabr*/
+/*Prevent result screen from overlapping with the navbar*/
 #result-screen {
     margin-top: 60px;
 }
