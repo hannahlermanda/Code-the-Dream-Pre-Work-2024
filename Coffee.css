@@ -73,6 +73,23 @@ h2 {
 
 #coffee-name {
     padding-top: 30px;
+    margin-top: 20px;
+    font-size: 35px;
+}
+
+@media (max-width: 920px){
+    #coffee-name {
+        font-size: 30px;
+        padding-top: 60px;
+    }
+
+    #navbar{
+        padding:10px;
+    }
+
+    li{
+        font-size: 18px;
+    }
 }
 
 #coffee-image {
@@ -176,7 +193,7 @@ img {
 #navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 20px;
     padding: 10px;
 }
 
