@@ -7,19 +7,30 @@
     <link rel="stylesheet" href="Coffee.css">
 </head>
 <body>
-    <h1>What should you drink today? &#129300; &#127861; &#9749;</h1>
-    <h2 id="coffee-name">Coffee Name</h2>
-    <img id="coffee-image" src="" alt="Coffee Image" style="width: 500px;">
-    <p id="coffee-ingredients"></p> <!-- Display ingredients -->
-    <p id="weather-info"></p> <!-- Display weather -->
-    <select id="location-select">
-        <option value="-54.9335,-67.6096">Puerto Williams, Chile </option>
-        <option value="-33.4569,-70.6483">Santiago, Chile</option>
-        <option value="14.6407,-90.5133">Guatemala City, Guatemala</option>
-        <option value="36.4478,-116.8529">Death Valley, CA, USA</option>
-        <option value="34.0522,-118.2437">Los Angeles, CA, USA</option>
-    </select>
-    <button id="recommend-button">Give me my drink! :D</button>
+    <!-- Screen 1: Welcome and Select Location -->
+    <div id="welcome-screen">
+        <h1>What should you drink today? &#129300; &#127861; &#9749;</h1>
+        <p>Select your location to get started!</p>
+        <select id="location-select">
+            <option value="-54.9335,-67.6096">Puerto Williams, Chile </option>
+            <option value="-33.4569,-70.6483">Santiago, Chile</option>
+            <option value="14.6407,-90.5133">Guatemala City, Guatemala</option>
+            <option value="36.4478,-116.8529">Death Valley, CA, USA</option>
+            <option value="34.0522,-118.2437">Los Angeles, CA, USA</option>
+        </select>
+        <button id="recommend-button">Give me my drink! :D</button>
+    </div>
+    <!-- Screen 2: Results screen: Show coffee and weather info -->
+    <div id="result-screen" style="display: none;">
+        <h2 id="coffee-name">Coffee Name</h2>
+        <img id="coffee-image" src="" alt="Coffee Image" style="width: 500px;">
+        <!-- Display ingredients -->
+        <p id="coffee-ingredients"></p> 
+        <!-- Display weather -->
+        <p id="weather-info"></p> 
+        <button id="go-back-button">Go Back</button>
+    </div>
+
     <script src="coffee.js"></script>
 </body>
 </html>

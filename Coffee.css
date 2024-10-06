@@ -1,3 +1,44 @@
-body{
-    background-color: aqua;
+.hidden {
+    display: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #087df3;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+select {
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+img {
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+#weather-info, #coffee-ingredients {
+    font-size: 1.2rem;
+    margin-top: 10px;
 }
