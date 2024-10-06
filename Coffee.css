@@ -2,6 +2,8 @@
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
+    background-image: url("https://www.shockwave-sound.com/blog/wp-content/uploads/2021/05/pexels-simon-berger-1323550-scaled.jpg");
+    background-size: cover;
 }
 
 .hidden {
@@ -15,7 +17,6 @@ html {
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #087df3;
 }
 
 h1, h2 {
@@ -39,6 +40,16 @@ h1, h2 {
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
+}
+
+#ingredients-section{
+    margin: 10px auto; 
+    background-color: beige;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    max-width: 500px;
+    width:100%;
+    height: auto;
 }
  /*Give me my drink button and go back button*/
 button {
