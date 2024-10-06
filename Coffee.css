@@ -1,3 +1,9 @@
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 .hidden {
     display: none;
 }
@@ -9,8 +15,18 @@ body {
 }
 
 h1, h2 {
-    color: #333;
+    color: #070707;
 }
+/*Coffee and Ingredients sections*/
+#coffee-section {
+    margin-top: 50px;
+    /*Add scroll margin to prevent overlap with the navbar*/
+    scroll-margin-top: 80px;
+}
+#coffee-name{
+    padding-top: 30px;
+}
+
  /*Give me my drink button and go back button*/
 button {
     background-color: #28a745;
@@ -44,7 +60,7 @@ img {
     margin-top: 10px;
 }
 
-/* Loading spinner */
+/*Loading spinner*/
 .spinner {
     border: 8px solid #f3f3f3;
     border-top: 8px solid #3498db;
@@ -62,4 +78,45 @@ img {
 
 #loading-screen, #result-screen {
     margin-top: 50px;
+}
+
+/*Nav bar*/
+#navbar {
+    background-color: #333;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+}
+
+#navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+
+#navbar ul li {
+    margin: 0;
+}
+
+#navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+#navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+/*Prevent result screen from overlapping with the navabr*/
+#result-screen {
+    margin-top: 60px;
 }

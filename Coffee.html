@@ -29,10 +29,28 @@
 
     <!-- Result screen (drink & weather) -->
     <div id="result-screen" style="display: none;">
-        <h2 id="coffee-name">Coffee Name</h2>
-        <img id="coffee-image" src="" alt="Coffee Image" style="width: 500px;">
-        <p id="coffee-ingredients"></p>
+        <!-- Navigation Bar -->
+        <nav id="navbar">
+            <ul>
+                <li><a href="#coffee-section">Your Drink</a></li>
+                <li><a href="#ingredients-section">Your Drink's Ingredients</a></li>
+            </ul>
+        </nav>
+
+        <!-- Drink section -->
+        <div id="coffee-section">
+            <h2 id="coffee-name">Coffee Name</h2>
+            <img id="coffee-image" src="" alt="Coffee Image" style="width: 500px;">
+        </div>
+
+        <!-- Ingredients section -->
+        <div id="ingredients-section">
+            <p id="coffee-ingredients"></p>
+        </div>
+
+        <!-- Weather Info -->
         <p id="weather-info"></p>
+
         <button id="go-back-button">Go Back</button>
     </div>
 
