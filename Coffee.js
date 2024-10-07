@@ -113,7 +113,7 @@ function fetchWeather(selectedLocation) {
             //Show the temperature screen before transitioning to result screen
             showTemperatureScreen(temperature);
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error fetching temp and drink:', error));
 }
 
 //Recommend coffee based on temperature
