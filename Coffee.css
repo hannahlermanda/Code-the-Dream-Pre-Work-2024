@@ -1,5 +1,5 @@
 html {
-    /*Smooth scroll behavior*/
+    /* Smooth scroll behavior */
     scroll-behavior: smooth;
     background-image: url("https://www.shockwave-sound.com/blog/wp-content/uploads/2021/05/pexels-simon-berger-1323550-scaled.jpg");
     background-size: cover;
@@ -9,12 +9,8 @@ html {
     font-size: 18px;
 }
 
-.hidden {
-    display: none;
-}
-
 #loading-screen, #temperature-screen, #result-screen {
-    /*Initially hidden*/
+    /*Hide loading screen, temperature screen, and results screen upon loading the page */
     display: none; 
 }
 
@@ -31,7 +27,7 @@ h2 {
     font-size: 30px;
 }
 
-/*Welcome Screen*/
+/* Welcome Screen */
 #welcome-screen, #loading-screen {
     display: flex; 
     flex-direction: column; 
@@ -50,24 +46,24 @@ h2 {
     cursor: pointer;
 }
 
-/*Temperature screen*/
+/* Temperature screen */
 #temperature-screen {
-    display: flex; 
-    flex-direction: column;      
-    justify-content: center;     
-    align-items: center;         
-    height: 100vh;              
-    text-align: center;          
+    display:none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;        
 }
 
-#temp-info{
+#temp-info {
     font-size: 40px;
 }
 
-/*Coffee and Ingredients sections*/
+/* Coffee and Ingredients sections */
 #coffee-section {
     margin-top: 50px;
-    /*Add scroll margin to prevent overlap with the navbar*/
+    /*Prevent overlap with the navbar*/
     scroll-margin-top: 80px; 
 }
 
@@ -77,17 +73,17 @@ h2 {
     font-size: 35px;
 }
 
-@media (max-width: 920px){
+@media (max-width: 920px) {
     #coffee-name {
         font-size: 30px;
         padding-top: 60px;
     }
 
-    #navbar{
-        padding:10px;
+    #navbar {
+        padding: 10px;
     }
 
-    li{
+    li {
         font-size: 18px;
     }
 }
@@ -160,8 +156,16 @@ img {
     100% { transform: rotate(360deg); }
 }
 
-#loading-screen, #result-screen {
-    margin-top: 50px;
+/*Loading screen*/
+#loading-screen {
+    margin-top: 100px;
+    display: none;  
+}
+
+/*Result screen*/
+#result-screen {
+    display: none; 
+    margin-top: 60px; 
 }
 
 /*Nav bar*/
@@ -199,9 +203,4 @@ img {
 
 #navbar ul li a:hover {
     text-decoration: underline;
-}
-
-/*Prevent result screen from overlapping with the navbar*/
-#result-screen {
-    margin-top: 60px;
 }

@@ -43,16 +43,24 @@ function translateIngredients(ingredients) {
     return ingredients.map(ingredient => ingredientTranslations[ingredient] || ingredient).join(', ');
 }
 
+//Show first screen
+function showFirstScreen() {
+    document.getElementById('welcome-screen').style.display = 'block';
+    document.getElementById('loading-screen').style.display = 'none';
+    document.getElementById('temperature-screen').style.display = 'none';
+
+}
+
 //Show loading screen
 function showLoadingScreen() {
     document.getElementById('welcome-screen').style.display = 'none';
-    document.getElementById('loading-screen').style.display = 'flex'; // Change to 'flex' for centering
+    document.getElementById('loading-screen').style.display = 'block';
 }
 
 //Show temperature screen
 function showTemperatureScreen(temperature) {
     document.getElementById('loading-screen').style.display = 'none';
-    document.getElementById('temperature-screen').style.display = 'flex'; // Change to 'flex' for centering
+    document.getElementById('temperature-screen').style.display = 'flex'; 
     document.getElementById('temp-info').innerText = `It's ${temperature}°F right now!`;
 
     //Transition to result screen after temperature screen
@@ -126,8 +134,7 @@ function goBackToWelcomeScreen() {
     document.getElementById('result-screen').style.display = 'none';
     document.getElementById('welcome-screen').style.display = 'block';
     const welcomeScreen = document.getElementById('welcome-screen');
-    //Flex display to make sure everything stays centered after clicking Go Back
-    welcomeScreen.style.display = 'flex'; 
+    welcomeScreen.style.display = 'flex'; //Flex display to make sure everything stays centered after clicking Go Back
 }
 
 //Event listener for the "Give me my drink!" button
